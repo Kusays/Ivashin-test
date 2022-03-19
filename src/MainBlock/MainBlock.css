@@ -1,11 +1,11 @@
 .MainBlock {
     width: 1000px;
     height: 100%;
-    background-color: aqua;
+    background-color: #F5F5DC;
 }
 
 .input {
-    width: 100px;
+    width: 400px;
 }
 
 
