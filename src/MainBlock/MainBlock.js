@@ -22,8 +22,27 @@ export function MainBlock() {
             <button onClick={() => setState([...state, inputEl.current.value])}>Добавить</button>
 
             <div className='list'>
-                {state.map((item) => (
-                    <Note text={item} />
+                {state.map((item, i) => (
+                    <div>
+                        <Note
+                            text={item}
+                            onDelete={() => {
+                                setState(state.filter((_, itemI) => itemI !== i));
+                            }}
+                            onEdit={(event) => {
+                                setState(state.map((item, itemI) => {
+                                    if (itemI == i) {
+                                        return event.target.value
+                                    }
+                                    else {
+                                        return item
+                                    }
+                                }))
+                            }}/> 
+
+
+
+                    </div>
                 ))}
             </div>
         </div>
