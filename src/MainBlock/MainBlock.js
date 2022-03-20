@@ -1,22 +1,9 @@
 import './MainBlock.css';
 import { Note } from '../Note/Note.js';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 
-export function MainBlock({ addTag }) {
-  const [state, setState] = useState([]);
+export function MainBlock({ list, addElement, removeElement, editElement }) {
   const inputEl = useRef(null);
-
-  useEffect(() => {
-    const list = localStorage.getItem('list');
-
-    if (list) {
-      setState(JSON.parse(list));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('list', JSON.stringify(state));
-  }, [state]);
 
   return (
     <div className="MainBlock">
@@ -26,49 +13,31 @@ export function MainBlock({ addTag }) {
       <input
         className="input"
         ref={inputEl}
-        onKeyUp={function (event) {
+        onKeyUp={(event) => {
           if (event.keyCode === 13) {
             event.preventDefault();
-            setState([...state, inputEl.current.value]);
-            const indexOfString = inputEl.current.value.indexOf('#');
-            let tag = '';
-            for (let i = indexOfString; inputEl.current.value[i] !== ' ' && i < inputEl.current.value.length; i++) {
-                tag += inputEl.current.value[i];
-                console.log(tag);
-            }
-            addTag(tag);
+            addElement(inputEl.current.value);
           }
         }}
         type="text"
-        
       />
-      
-      <button onClick={() => setState([...state, inputEl.current.value])}>
-        Add
-      </button>
+
+      <button onClick={() => addElement(inputEl.current.value)}>Add</button>
 
       <div>
         <h1>Task list</h1>
       </div>
 
       <div className="list">
-        {state.map((item, i) => (
+        {list.map((item, i) => (
           <Note
             key={i}
             text={item}
             onDelete={() => {
-              setState(state.filter((_, itemI) => itemI !== i));
+              removeElement(i);
             }}
             onEdit={(value) => {
-              setState(
-                state.map((item, itemI) => {
-                  if (itemI === i) {
-                    return value;
-                  } else {
-                    return item;
-                  }
-                })
-              );
+              editElement(i, value);
             }}
           />
         ))}

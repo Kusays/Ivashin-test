@@ -8,11 +8,9 @@ export function Tags({ tags }) {
       <hr></hr>
       <dl>
         {tags.map((tag) => (
-          <dt>{ tag }</dt>
+          <dt key={tag}>{tag}</dt>
         ))}
-        
       </dl>
-      
     </div>
   );
 }
