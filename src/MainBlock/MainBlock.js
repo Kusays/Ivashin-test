@@ -2,7 +2,7 @@ import './MainBlock.css';
 import { Note } from '../Note/Note.js';
 import React, { useState, useRef, useEffect } from 'react';
 
-export function MainBlock() {
+export function MainBlock({ addTag }) {
   const [state, setState] = useState([]);
   const inputEl = useRef(null);
 
@@ -30,10 +30,19 @@ export function MainBlock() {
           if (event.keyCode === 13) {
             event.preventDefault();
             setState([...state, inputEl.current.value]);
+            const indexOfString = inputEl.current.value.indexOf('#');
+            let tag = '';
+            for (let i = indexOfString; inputEl.current.value[i] !== ' ' && i < inputEl.current.value.length; i++) {
+                tag += inputEl.current.value[i];
+                console.log(tag);
+            }
+            addTag(tag);
           }
         }}
         type="text"
+        
       />
+      
       <button onClick={() => setState([...state, inputEl.current.value])}>
         Add
       </button>
