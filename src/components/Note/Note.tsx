@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface INote {
   text: string;
@@ -35,4 +35,4 @@ export const Note = ({ text, onDelete, onEdit }: INote) => {
       </button>
     </div>
   );
-}
+};

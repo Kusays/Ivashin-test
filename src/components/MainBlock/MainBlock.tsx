@@ -1,6 +1,6 @@
-import './MainBlock.css';
-import { Note } from '../Note/Note.js';
-import React, { useRef } from 'react';
+import "./MainBlock.css";
+import { Note } from "../Note/Note";
+import React, { useRef } from "react";
 
 interface IMainBlock {
   list: string[];
@@ -9,7 +9,12 @@ interface IMainBlock {
   editElement: (index: number, newValue: string) => void;
 }
 
-export const MainBlock = ({ list, addElement, removeElement, editElement }: IMainBlock) => {
+export const MainBlock = ({
+  list,
+  addElement,
+  removeElement,
+  editElement,
+}: IMainBlock) => {
   const inputEl = useRef<HTMLInputElement>(null);
 
   return (
@@ -31,10 +36,11 @@ export const MainBlock = ({ list, addElement, removeElement, editElement }: IMai
 
       <button
         onClick={() => {
-          if(inputEl.current !== null) {
-            addElement(inputEl.current.value)}
+          if (inputEl.current !== null) {
+            addElement(inputEl.current.value);
           }
-        }>
+        }}
+      >
         Add
       </button>
 
@@ -58,4 +64,4 @@ export const MainBlock = ({ list, addElement, removeElement, editElement }: IMai
       </div>
     </div>
   );
-}
+};

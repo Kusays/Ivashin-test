@@ -1,5 +1,5 @@
-import './Tags.css';
-import React from 'react';
+import "./Tags.css";
+import React from "react";
 
 interface ITags {
   tags: string[];
@@ -17,4 +17,4 @@ export const Tags = ({ tags }: ITags) => {
       </dl>
     </div>
   );
-}
+};

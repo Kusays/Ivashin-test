@@ -1,6 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-export const useLocalState = <T>(key: string, initialState: T): [T, React.Dispatch<React.SetStateAction<T>>] => {
+export const useLocalState = <T>(
+  key: string,
+  initialState: T
+): [T, React.Dispatch<React.SetStateAction<T>>] => {
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
