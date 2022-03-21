@@ -1,5 +1,5 @@
 import { useLocalState } from "./useLocalState";
-import { extractTag } from "../utils/extractTag";
+import { extractTags } from "../utils/extractTag";
 import { removeDuplicates } from "../utils/removeDublicates";
 
 export const useList = () => {
@@ -7,8 +7,8 @@ export const useList = () => {
 
   const tags = removeDuplicates(
     list
-      .map(extractTag)
-      .filter((tag: string | void): tag is string => tag !== undefined)
+      .map(extractTags)
+      .reduce((accumulator, item) => accumulator.concat(item), [])
   );
 
   const addElement = (value: string) => setList([...list, value]);
