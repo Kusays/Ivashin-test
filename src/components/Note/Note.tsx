@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 
-export function Note({ text, onDelete, onEdit }) {
+interface INote {
+  text: string;
+  onDelete: () => void;
+  onEdit: (value: string) => void;
+}
+
+export const Note = ({ text, onDelete, onEdit }: INote) => {
   const [isEdit, setState] = useState(false);
 
   return (

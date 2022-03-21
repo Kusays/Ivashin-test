@@ -2,8 +2,15 @@ import './MainBlock.css';
 import { Note } from '../Note/Note.js';
 import React, { useRef } from 'react';
 
-export function MainBlock({ list, addElement, removeElement, editElement }) {
-  const inputEl = useRef(null);
+interface IMainBlock {
+  list: string[];
+  addElement: (value: string) => void;
+  removeElement: (index: number) => void;
+  editElement: (index: number, newValue: string) => void;
+}
+
+export const MainBlock = ({ list, addElement, removeElement, editElement }: IMainBlock) => {
+  const inputEl = useRef<HTMLInputElement>(null);
 
   return (
     <div className="MainBlock">
@@ -14,7 +21,7 @@ export function MainBlock({ list, addElement, removeElement, editElement }) {
         className="input"
         ref={inputEl}
         onKeyUp={(event) => {
-          if (event.keyCode === 13) {
+          if (event.keyCode === 13 && inputEl.current !== null) {
             event.preventDefault();
             addElement(inputEl.current.value);
           }
@@ -22,7 +29,14 @@ export function MainBlock({ list, addElement, removeElement, editElement }) {
         type="text"
       />
 
-      <button onClick={() => addElement(inputEl.current.value)}>Add</button>
+      <button
+        onClick={() => {
+          if(inputEl.current !== null) {
+            addElement(inputEl.current.value)}
+          }
+        }>
+        Add
+      </button>
 
       <div>
         <h1>Task list</h1>

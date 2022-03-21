@@ -1,7 +1,11 @@
 import './Tags.css';
 import React from 'react';
 
-export function Tags({ tags }) {
+interface ITags {
+  tags: string[];
+}
+
+export const Tags = ({ tags }: ITags) => {
   return (
     <div className="Tags">
       <h3>Your tags</h3>

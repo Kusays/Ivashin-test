@@ -1,1 +1,1 @@
-export const removeDuplicates = (arr) => [...new Set([...arr])];
+export const removeDuplicates = (arr: string[]) => [...new Set([...arr])];

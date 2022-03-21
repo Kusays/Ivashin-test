@@ -1,4 +1,4 @@
-export const extractTag = (str) => {
+export const extractTag = (str: string) => {
   const indexOfString = str.indexOf('#');
 
   if (indexOfString === -1) {
