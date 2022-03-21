@@ -1,4 +1,4 @@
-import { useLocalState } from '../hooks/useLocalState';
+import { useLocalState } from './useLocalState';
 import { extractTag } from '../utils/extractTag';
 import { removeDuplicates } from '../utils/removeDublicates';
 

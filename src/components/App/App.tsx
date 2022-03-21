@@ -4,7 +4,7 @@ import { Tags } from '../Tags/Tags'; // TODO почему-то ругается 
 import React from 'react';
 import { useList } from '../../hooks';
 
-function App() {
+export const App = () => {
   const [list, tags, addElement, removeElement, editElement] = useList();
 
   return (
@@ -19,5 +19,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
