@@ -10,7 +10,7 @@ export const Tags = ({ tags }: ITags) => {
     <div className="Tags">
       <h3>Your tags</h3>
       <hr></hr>
-      <dl>
+      <dl className="colorTags">
         {tags.map((tag) => (
           <dt key={tag}>{tag}</dt>
         ))}
