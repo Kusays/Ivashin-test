@@ -1,2 +1,2 @@
-export * from "./extractTag";
+export * from "./extractTags";
 export * from "./removeDublicates";

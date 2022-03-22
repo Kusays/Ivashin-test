@@ -29,6 +29,8 @@ export const MainBlock = ({
           if (event.keyCode === 13 && inputEl.current !== null) {
             event.preventDefault();
             addElement(inputEl.current.value);
+
+            inputEl.current.value = "";
           }
         }}
         type="text"

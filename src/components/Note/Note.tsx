@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { extractTags } from "../../utils";
 import "./Note.css";
 
 interface INote {
@@ -26,7 +27,9 @@ export const Note = ({ text, onDelete, onEdit }: INote) => {
       {isEdit ? (
         <input
           defaultValue={text}
-          onChange={(event) => onEdit(event.target.value)}
+          onChange={(event) => {
+            onEdit(event.target.value);
+          }}
           onKeyUp={function (event) {
             if (event.keyCode === 13) {
               event.preventDefault();
@@ -45,6 +48,11 @@ export const Note = ({ text, onDelete, onEdit }: INote) => {
       >
         ✎
       </button>
+      <div className="tags">
+        {extractTags(text).map((item, i) => (
+          <div key={i}>{item}&nbsp;</div>
+        ))}
+      </div>
     </div>
   );
 };

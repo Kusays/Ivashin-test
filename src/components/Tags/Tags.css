@@ -7,3 +7,8 @@
 .colorTags {
   color: blueviolet;
 }
+
+.link {
+  text-decoration: none;
+  color: blueviolet;
+}

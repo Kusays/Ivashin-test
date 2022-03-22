@@ -5,11 +5,12 @@ import React from "react";
 import { useList } from "../../hooks";
 
 export const App = () => {
-  const { list, tags, addElement, removeElement, editElement } = useList();
+  const { list, tags, addElement, removeElement, editElement, setFilterTag } =
+    useList();
 
   return (
     <div className="App">
-      <Tags tags={tags} />
+      <Tags tags={tags} setFilterTag={setFilterTag} />
       <MainBlock
         list={list}
         removeElement={removeElement}
