@@ -13,6 +13,7 @@ export const App = () => {
     editElement,
     setFilterTag,
     filterTag,
+    setList,
   } = useList();
 
   return (
@@ -23,6 +24,9 @@ export const App = () => {
         removeElement={removeElement}
         addElement={addElement}
         editElement={editElement}
+        loadJson={(obj: string) => {
+          setList(JSON.parse(obj));
+        }}
       />
     </div>
   );

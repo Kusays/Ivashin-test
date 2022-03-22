@@ -31,6 +31,7 @@ export const useList = () => {
   return {
     list,
     tags,
+    setList,
     addElement,
     removeElement,
     editElement,
