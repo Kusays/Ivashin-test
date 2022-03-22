@@ -1,5 +1,7 @@
+@import '../../colors.scss';
+
 .colorTegsInList {
-    color: blueviolet;
+    color: $tags-color;
 }
 
 .tags {
@@ -7,5 +9,5 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: blueviolet;
+    color: $tags-color;
 }

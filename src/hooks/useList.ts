@@ -35,5 +35,6 @@ export const useList = () => {
     removeElement,
     editElement,
     setFilterTag,
+    filterTag,
   };
 };

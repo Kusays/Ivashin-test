@@ -1,4 +1,4 @@
-import "./MainBlock.css";
+import "./MainBlock.scss";
 import { Note } from "../Note/Note";
 import React, { useRef } from "react";
 

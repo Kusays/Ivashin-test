@@ -1,12 +1,13 @@
-import "./Tags.css";
+import "./Tags.scss";
 import React from "react";
 
 interface ITags {
   tags: string[];
   setFilterTag: (tag: string | null) => void;
+  filterTag: string | null;
 }
 
-export const Tags = ({ tags, setFilterTag }: ITags) => {
+export const Tags = ({ tags, setFilterTag, filterTag }: ITags) => {
   return (
     <div className="Tags">
       <h3>Your tags</h3>
@@ -15,7 +16,11 @@ export const Tags = ({ tags, setFilterTag }: ITags) => {
       <dl className="colorTags">
         {tags.map((tag) => (
           <dt key={tag}>
-            <a className="link" href={tag} onClick={() => setFilterTag(tag)}>
+            <a
+              className={`link ${filterTag === tag ? "filtered" : ""}`}
+              href={tag}
+              onClick={() => setFilterTag(tag)}
+            >
               {tag}
             </a>
           </dt>

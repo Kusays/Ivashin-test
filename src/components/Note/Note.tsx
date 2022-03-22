@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { extractTags } from "../../utils";
-import "./Note.css";
+import "./Note.scss";
 
 interface INote {
   text: string;
